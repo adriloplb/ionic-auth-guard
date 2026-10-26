@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="secondary">
+    <ion-title>Panel de Usuario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="handleLogout()">Cerrar Sesión</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card *ngIf="currentSession() as session">
+    <ion-card-header>
+      <ion-card-title>Bienvenido, {{ session.username }}</ion-card-title>
+      <ion-card-subtitle>Panel de Usuario Estándar</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p>Rol asignado: <strong>{{ session.role }}</strong></p>
+      <p>Estado de la sesión: {{ session.isAuthenticated ? 'Autenticado' : 'No autenticado' }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
